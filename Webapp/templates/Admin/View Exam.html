@@ -1,0 +1,40 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+<body><form action="/myapp/admin_viewexam_post/" method="post">
+<table class="pull-left mb-3 mt-3" >
+            {% csrf_token %}
+
+  <tr>
+    <td>From date</td>
+    <td><input type="date" name="textfield" id="textfield" class="form-control"/></td>
+    <td>To date</td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control"/></td>
+    <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info"/></td>
+  </tr>
+</table>
+    <table class="table table-bordered">
+  <tr>
+    <th>Serial No.</th>
+    <th>Exam Name</th>
+    <th>Exam Code</th>
+    <th>Date</th>
+    <th>Type</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.examname }}</td>
+    <td>&nbsp;{{ i.examcode }}</td>
+    <td>&nbsp;{{ i.date }}</td>
+    <td>{{ i.type }}</td>
+
+    <td><a href="/myapp/admin_editexam/{{ i.id }}" class="btn btn-success">Edit</a></td>
+    <td><a href="/myapp/admin_deleteexam/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+
+
+<body><form action="/myapp/admin_viewstudentallocation_post/" method="post">
+    <table class="table table-bordered">
+    {% csrf_token %}
+
+  <tr>
+      <th>Serial No.</th>
+      <th>Student</th>
+      <th>Date</th>
+      <th>Hall No.</th>
+{#      <td>Status</td>#}
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.STUDENT.name }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>{{ i.HALLALLOCATION.HALL.roomno }}</td>
+{#      <td>{{ i.status }}</td>#}
+      <td><a href="/myapp/admin_editstudentallocation/{{ i.id }}" class="btn btn-success">Edit</a></td>
+      <td><a href="/myapp/admin_deletestudentallocation/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

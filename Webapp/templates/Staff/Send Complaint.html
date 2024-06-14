@@ -1,0 +1,19 @@
+{% extends 'Staff/home index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/staff_sendcomplaint_post/">
+    <table class="table table-bordered">
+  <tr>{% csrf_token %}
+    <th width="180px">Complaint</th>
+      <td><textarea name="textfield" id="textfield" rows="5"  class="form-control" required></textarea></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Send" class="btn btn-success"/></td>
+  </tr>
+</table>
+
+</form>
+</body>
+{% endblock %}

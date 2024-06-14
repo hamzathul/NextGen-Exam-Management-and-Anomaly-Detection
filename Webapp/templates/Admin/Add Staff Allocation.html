@@ -1,0 +1,36 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+
+<body><form action="/myapp/admin_addstaffallocation_post/" method="post">
+    {% csrf_token %}
+
+    <table class="table table-bordered">
+  <tr>
+{#    <td>Staff</td>#}
+{#    <td><select name="select" id="select">#}
+{#        {% for i in data %}#}
+{#        <option value="{{ i.id }}">{{ i.name }}</option>#}
+{#        {% endfor %}#}
+{#    </select></td>#}
+{#  </tr>#}
+<input type="hidden"value="{{ data1 }}"name="id1">
+{#  <tr>#}
+{#    <td>Date</td>#}
+{#    <td><input type="date" name="textfield" id="textfield" /></td>#}
+{#  </tr>#}
+  <tr>
+    <td>Staff</td>
+    <td><select name="select2" id="select2" class="form-control" required>
+        {% for i in data %}
+        <option value="{{ i.id }}">{{ i.name }}</option>
+        {% endfor %}
+    </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Add" class="btn btn-info"/></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

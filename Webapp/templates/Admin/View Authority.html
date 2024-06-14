@@ -1,0 +1,36 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+
+<body><form action="/myapp/admin_viewauthority_post/" method="post">
+<table class="pull-left mb-3 mt-3" >
+    {% csrf_token %}
+  <tr>
+    <td><input type="text" name="textfield" id="textfield" class="form-control"/></td>
+    <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info"/></td>
+  </tr>
+</table>
+    <table class="table table-bordered">
+    <tr>
+      <th>Serial No.</th>
+      <th>Name</th>
+      <th>E-mail</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.name }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+      <td>&nbsp;{{ i.place }}<br>{{ i.post }}<br>{{ i.district }}<br>{{ i.pincode }}</td>
+      <td>{{ i.phone }}</td>
+      <td><a href="/myapp/admin_editauthority/{{ i.id }}"class="btn btn-success">Edit</a></td>
+      <td><a href="/myapp/admin_deleteauthority/{{ i.id }}"class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

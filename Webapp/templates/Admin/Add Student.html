@@ -1,0 +1,60 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+<body><form action="/myapp/admin_addstudent_post/" method="post" enctype="multipart/form-data">
+    <table class="table table-bordered">
+    {% csrf_token %}
+  <tr>
+    <td>Name</td>
+    <td><input type="text" name="textfield" id="textfield" class="form-control" required pattern="[A-Za-z]+"/></td>
+  </tr>
+  <tr>
+    <td>Admission No.</td>
+    <td><input type="text" name="textfield2" id="textfield2" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>DOB</td>
+    <td><input type="date" name="textfield3" id="textfield3" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Department</td>
+    <td><select name="textfield4" class="form-control" required>
+        <option value="CSE">CSE</option>
+        <option value="EEE">EEE</option>
+        <option value="CHE">CHE</option>
+        <option value="MCT">MCT</option>
+    </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Course</td>
+    <td><input type="text" name="textfield5" id="textfield5" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>E-mail</td>
+    <td><input type="email" name="textfield6" id="textfield6" class="form-control"/></td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td>
+        <input type="radio" name="textfield7" id="textfield7" value="Male" />Male<br>
+        <input type="radio" name="textfield7" id="textfield7" value="Female" />Female<br>
+        <input type="radio" name="textfield7" id="textfield7" value="Others" />Others<br>
+
+
+    </td>
+  <tr>
+    <td>Place</td>
+    <td><input type="text" name="textfield8" id="textfield8" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Photo</td>
+    <td><input type="file" name="fileField" id="fileField" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Add" class="btn btn-info"/></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

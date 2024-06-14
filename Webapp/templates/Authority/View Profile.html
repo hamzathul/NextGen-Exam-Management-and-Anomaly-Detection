@@ -1,0 +1,42 @@
+{% extends 'Authority/home index.html' %}
+{% block body %}
+
+<body><form action="/myapp/authority_viewprofile_post/" method="post">
+    <table class="table table-bordered">
+    {% csrf_token %}
+
+  <tr>
+    <th>Name</th>
+    <td>&nbsp;{{ data.name }}</td>
+  </tr>
+  <tr>
+    <th>E-mail</th>
+    <td>&nbsp;{{ data.email }}</td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td>&nbsp;{{ data.phone }}</td>
+  </tr>
+  <tr>
+    <th>Place</th>
+    <td>&nbsp;{{ data.place }}</td>
+  </tr>
+  <tr>
+    <th>Post</th>
+    <td>{{ data.post }}</td>
+  </tr>
+  <tr>
+    <th>District</th>
+    <td>&nbsp;{{ data.district }}</td>
+  </tr>
+  <tr>
+    <th>Pincode</th>
+    <td>&nbsp;{{ data.pincode }}</td>
+  </tr>
+
+</table>
+
+
+</form>
+</body>
+{% endblock %}

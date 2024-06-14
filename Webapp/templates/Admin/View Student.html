@@ -1,0 +1,47 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+
+
+<body><form action="/myapp/admin_viewstudent_post/" method="post">
+<table class="pull-left mb-3 mt-3" >
+        {% csrf_token %}
+
+  <tr>
+    <td><input type="text" name="textfield" id="textfield" class="form-control"/></td>
+    <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info" /></td>
+  </tr>
+</table>
+
+    <table class="table table-bordered">
+  <tr>
+    <th>Serial No.</th>
+    <th>Name</th>
+    <th>Admission No.</th>
+    <th>DOB</th>
+    <th>Department</th>
+    <th>Course</th>
+    <th>E-mail</th>
+    <th>Gender</th>
+    <th>Place</th>
+    <th>Photo</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr> {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.name }}</td>
+    <td>&nbsp;{{ i.admissionno }}</td>
+    <td>{{ i.dob }}</td>
+    <td>&nbsp;{{ i.department }}</td>
+    <td>&nbsp;{{ i.course }}</td>
+    <td>&nbsp;{{ i.email }}</td>
+    <td>&nbsp;{{ i.gender }}</td>
+    <td>{{ i.place }}</td>
+      <td><a href="{{ i.photo }}"> <img src="{{ i.photo }}" height="70px" width="70px" ></a></td>
+      <td><a href="/myapp/admin_editstudent/{{ i.id }}" class="btn btn-success">Edit</a></td>
+    <td><a href="/myapp/admin_deletestudent/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+  </tr>{% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

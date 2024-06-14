@@ -1,0 +1,24 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+
+<body><form action="/myapp/admin_edithall_post/" method="post">
+    <table class="table table-bordered">
+    {% csrf_token %}
+
+  <tr>
+      <input type="hidden" name="id" value="{{ data.id }}">
+    <td>Room No.</td>
+    <td><input type="number" name="textfield" id="textfield" value="{{ data.roomno }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Floor</td>
+    <td><input type="number" name="textfield2" id="textfield2" value="{{ data.floor }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Update"  class="btn btn-info"/></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

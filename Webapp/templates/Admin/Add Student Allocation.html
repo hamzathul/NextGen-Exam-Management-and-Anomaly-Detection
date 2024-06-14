@@ -1,0 +1,31 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+
+<body><form action="/myapp/admin_addstudentallocation_post/" method="post">
+    <table class="table table-bordered">
+{% csrf_token %}
+  <tr>
+    <td>Student</td>
+      <td><select name="select2" id="select2" class="form-control" required>
+        {% for i in data1 %}
+        <option value="{{ i.id }}">{{ i.name }}</option>
+        {% endfor %}
+    </select></td>
+  </tr>
+
+  <tr>
+    <td>Hall Allocation</td>
+    <td><select name="select" id="select" class="form-control" required>
+        {% for i in data2 %}
+        <option value="{{ i.id }}">{{ i.HALL.roomno }}</option>
+        {% endfor %}
+    </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Add" class="btn btn-info"/></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

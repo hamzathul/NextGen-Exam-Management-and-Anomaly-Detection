@@ -1,0 +1,35 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/admin_addexam_post/">
+    {% csrf_token %}
+    <table class="table table-bordered">
+    <tr>
+      <td>Exam Name</td>
+      <td><input type="text" name="textfield" id="textfield" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Exam Code</td>
+      <td><input type="text" name="textfield2" id="textfield2" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><input type="date" name="textfield3" id="textfield3" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td><select name="select" id="select" class="form-control" required>
+
+          <option value="Regular">Regular</option>
+          <option value="Supplimentary">Supplimentary</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Add" class="btn btn-info"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

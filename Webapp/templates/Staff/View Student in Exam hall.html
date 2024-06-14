@@ -1,0 +1,33 @@
+{% extends 'Staff/home index.html' %}
+{% block body %}
+
+<body><form action="/myapp/staff_viewstudentinexamhall_post/" method="post">
+<table class="pull-left mb-3 mt-3" >
+    {% csrf_token %}
+  <tr>
+    <td>From Date</td>
+    <td><input type="date" name="textfield" id="textfield" class="form-control"/></td>
+    <td>To Date</td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control"/></td>
+    <td><input type="submit" name="button" id="button" value="Search"  class="btn btn-info"/></td>
+  </tr>
+</table>
+    <table class="table table-bordered">
+    <tr>
+      <th>Serial No</th>
+      <th>Student</th>
+      <th>Date</th>
+      <th>Hall Allocation</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.STUDENT.name }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>{{ i.HALLALLOCATION.HALL.roomno }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

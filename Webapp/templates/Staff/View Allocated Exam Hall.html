@@ -1,0 +1,24 @@
+{% extends 'Staff/home index.html' %}
+{% block body %}
+
+<body><form action="" method="post">
+    <table class="table table-bordered">
+    <tr>
+      <th>Serial No</th>
+
+      <th>Date</th>
+      <th>Hall Allocation</th>
+      <td></td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>{{ i.HALLALLOCATION.HALL.roomno }}</td>
+          <td><a href="/myapp/staff_viewallocatedexam/{{ i.id }}" class="btn btn-secondary">Exam</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

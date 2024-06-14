@@ -1,0 +1,21 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+<body><form action="/myapp/admin_addhall_post/" method="post">
+    {% csrf_token %}
+    <table class="table table-bordered">
+  <tr>
+    <td>Room No.</td>
+    <td><input type="number" name="textfield" id="textfield"  class="form-control" required /></td>
+  </tr>
+  <tr>
+    <td>Floor</td>
+    <td><input type="number" name="textfield2" id="textfield2"  class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Add" class="btn btn-info"/></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

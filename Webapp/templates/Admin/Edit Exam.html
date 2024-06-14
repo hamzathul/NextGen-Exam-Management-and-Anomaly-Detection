@@ -1,0 +1,36 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/admin_editexam_post/">
+{% csrf_token %}
+<input type="hidden" name="id" value="{{ data.id }}">
+    <table class="table table-bordered">
+    <tr>
+      <td>Exam Name</td>
+      <td><input type="text" name="textfield" id="textfield" value="{{ data.examname }}"class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Exam Code</td>
+      <td><input type="text" name="textfield2" id="textfield2" value="{{ data.examcode }}"class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><input type="date" name="textfield3" id="textfield3" value="{{ data.date }}"class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td><select name="select" id="select" class="form-control" required>
+                  <option hidden>{{ data.type }}</option>
+
+          <option value="Regular" {% if data.type == "Regular" %} selected {% endif %}>Regular</option>
+          <option value="Supplimentary" {% if data.type == "Supplimentary" %} selected {% endif %}>Supplimentary</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Update" class="btn btn-info"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

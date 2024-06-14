@@ -1,0 +1,43 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+
+<body><form action="/myapp/admin_editauthority_post/" method="post">
+    <input type="hidden" name="id" value="{{ data.id }}">
+    {% csrf_token %}
+    <table class="table table-bordered">
+  <tr>
+    <td>Name</td>
+    <td><input name="textfield" type="text" value="{{ data.name }}" class="form-control" required/>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>E-mail</td>
+    <td><input type="email" name="textfield3" id="textfield3" value="{{ data.email }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td><input type="number" name="textfield4" id="textfield4" value="{{ data.phone }}" class="form-control" required min="6000000000" max="9999999999" maxlength="10"/></td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td><input type="text" name="textfield2" id="textfield2" value="{{ data.place }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Post</td>
+    <td><input type="text" name="textfield5" id="textfield5" value="{{ data.post }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>District</td>
+    <td><input type="text" name="textfield6" id="textfield6" value="{{ data.district }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Pincode</td>
+    <td><input type="number" name="textfield7" id="textfield7" value="{{ data.pincode }}" class="form-control" required min="100000" max="999999" maxlength="6"/></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Update"  class="btn btn-info"/></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

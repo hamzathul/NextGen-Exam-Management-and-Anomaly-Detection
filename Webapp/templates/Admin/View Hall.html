@@ -1,0 +1,30 @@
+{% extends 'Admin/home index.html' %}
+{% block body %}
+
+<body><form action="/myapp/admin_viewhall_post" method="post">
+    <table class="table table-bordered">
+
+    {% csrf_token %}
+
+  <tr>
+    <th>Serial No</th>
+    <th>Room No</th>
+    <th>floor</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td> {{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.roomno }}</td>
+    <td>&nbsp;{{ i.floor }}</td>
+    <td><a href="/myapp/admin_edithall/{{ i.id }}" class="btn btn-success">Edit</a></td>
+    <td><a href="/myapp/admin_deletehall/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+    <td><a href="/myapp/admin_addhallallocation/{{ i.id }}" class="btn btn-info">Exam Allocation</a></td>
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+</body>
+{% endblock %}
